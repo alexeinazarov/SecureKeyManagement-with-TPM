@@ -42,8 +42,8 @@ To estimate the likelihood of resolving each error and the combined probability 
 - Sample size (n_1): 12
 
 **Error 2**:
-- Sample proportion (`\hat{p}_2`): 7/13 ≈ 0.538
-- Sample size (`n_2`): 13
+- Sample proportion (p_hat_2): 7/13 ≈ 0.538
+- Sample size (n_2): 13
 
 **Combined**:
 - Combined proportion (`\hat{p}`): 13/25 = 0.52
