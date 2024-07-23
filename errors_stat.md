@@ -38,8 +38,8 @@ To estimate the likelihood of resolving each error and the combined probability 
 - Alternative Hypothesis (H1): The proportion of successful resolutions is different from 50% (p ≠ 0.5).
 
 **Error 1**:
-- Sample proportion (`\hat{p}_1`): 6/12 = 0.5
-- Sample size (`n_1`): 12
+- Sample proportion (p_hat_1): 6/12 = 0.5
+- Sample size (n_1): 12
 
 **Error 2**:
 - Sample proportion (`\hat{p}_2`): 7/13 ≈ 0.538
