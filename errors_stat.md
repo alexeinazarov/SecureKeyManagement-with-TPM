@@ -38,39 +38,39 @@ To estimate the likelihood of resolving each error and the combined probability 
 - Alternative Hypothesis (H1): The proportion of successful resolutions is different from 50% (p ≠ 0.5).
 
 **Error 1**:
-- Sample proportion (\( \hat{p}_1 \)): 6/12 = 0.5
-- Sample size (\( n_1 \)): 12
+- Sample proportion (`\hat{p}_1`): 6/12 = 0.5
+- Sample size (`n_1`): 12
 
 **Error 2**:
-- Sample proportion (\( \hat{p}_2 \)): 7/13 ≈ 0.538
-- Sample size (\( n_2 \)): 13
+- Sample proportion (`\hat{p}_2`): 7/13 ≈ 0.538
+- Sample size (`n_2`): 13
 
 **Combined**:
-- Combined proportion (\( \hat{p} \)): 13/25 = 0.52
-- Combined sample size (\( n \)): 25
+- Combined proportion (`\hat{p}`): 13/25 = 0.52
+- Combined sample size (`n`): 25
 
 **Z-Score Calculation**:
-\[ Z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0 (1 - p_0)}{n}}} \]
+`Z = (p_hat - p_0) / sqrt((p_0 * (1 - p_0)) / n)`
 
 Where:
-- \( \hat{p} \) = sample proportion
-- \( p_0 \) = hypothesized population proportion (0.5)
-- \( n \) = sample size
+- `p_hat`= sample proportion
+- `p_0`  = hypothesized population proportion (0.5)
+- `n`  = sample size
 
 For Error 1:
-\[ Z_1 = \frac{0.5 - 0.5}{\sqrt{\frac{0.5 \times (1 - 0.5)}{12}}} = 0 \]
+`Z_1 = (0.5 - 0.5) / sqrt((0.5 * (1 - 0.5)) / 12) = 0`
 
 For Error 2:
-\[ Z_2 = \frac{0.538 - 0.5}{\sqrt{\frac{0.5 \times (1 - 0.5)}{13}}} ≈ 0.419 \]
+`Z_2 = (0.538 - 0.5) / sqrt((0.5 * (1 - 0.5)) / 13) ≈ 0.419`
 
 For Combined:
-\[ Z = \frac{0.52 - 0.5}{\sqrt{\frac{0.5 \times (1 - 0.5)}{25}}} = 0.4 \]
+`Z = (0.52 - 0.5) / sqrt((0.5 * (1 - 0.5)) / 25) = 0.4`
 
 ### Interpretation
 The Z-scores for Error 1, Error 2, and the combined data are all below the critical value for a 95% confidence level (approximately ±1.96). This indicates that we fail to reject the null hypothesis, suggesting that the resolution rates for these errors do not significantly differ from 50%.
 
 ### Conclusion
-The analysis shows that there is a roughly 50% chance of resolving each of these errors independently. When both errors occur together, the likelihood of resolving them is similarly around 50%. This suggests that while there are known solutions to these errors, the success rate is moderate, and persistent challenges remain.
+The analysis shows that there is a roughly 50% chance of resolving each of these errors independently. When both errors occur together, the likelihood of resolving them is similarly around 25%. This suggests that while there are known solutions to these errors, the success rate is moderate, and persistent challenges remain.
 
 **Links to Sources**:
 1. [Issue #788 - tpm2-software/tpm2-abrmd](https://github.com/tpm2-software/tpm2-abrmd/issues/788)
