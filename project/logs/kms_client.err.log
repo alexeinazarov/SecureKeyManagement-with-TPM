@@ -1,0 +1,5 @@
+Could not open UnixIO socket: No such file or directory
+
+** (process:68129): WARNING **: 05:17:31.166: tcti_conf before: "(null)"
+
+** (tpm2-abrmd:68129): CRITICAL **: 05:17:31.166: Failed to parse options: Unknown option --daemon

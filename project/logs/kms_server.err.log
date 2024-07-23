@@ -1,0 +1,10 @@
+sh: 1: tpm2_clearlockout: not found
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
+ERROR: Unable to run tpm2_clear
+sh: 1: tpm2_clearlockout: not found
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
+ERROR: Unable to run tpm2_clear

@@ -1,0 +1,79 @@
++ log_and_explain 'Setting permissions on TPM device files.'
++ local 'message=Setting permissions on TPM device files.'
+++ date
++ echo -e '\n[INFO] Tue Jul 23 05:33:22 AM CEST 2024: Setting permissions on TPM device files.'
+
+[INFO] Tue Jul 23 05:33:22 AM CEST 2024: Setting permissions on TPM device files.
++ sudo chmod 666 /dev/tpm0 /dev/tpmrm0
++ main
++ log_and_explain 'Starting TPM lockout clearing script.'
++ local 'message=Starting TPM lockout clearing script.'
+++ date
++ echo -e '\n[INFO] Tue Jul 23 05:33:22 AM CEST 2024: Starting TPM lockout clearing script.'
+
+[INFO] Tue Jul 23 05:33:22 AM CEST 2024: Starting TPM lockout clearing script.
++ log_and_explain 'Ensuring tpm2-tools is installed.'
++ local 'message=Ensuring tpm2-tools is installed.'
+++ date
++ echo -e '\n[INFO] Tue Jul 23 05:33:22 AM CEST 2024: Ensuring tpm2-tools is installed.'
+
+[INFO] Tue Jul 23 05:33:22 AM CEST 2024: Ensuring tpm2-tools is installed.
++ sudo apt-get update
+Сущ:1 https://download.docker.com/linux/ubuntu jammy InRelease
+Сущ:2 http://at.archive.ubuntu.com/ubuntu jammy InRelease
+Сущ:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Сущ:4 https://download.virtualbox.org/virtualbox/debian jammy InRelease
+Сущ:5 http://at.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Сущ:6 http://at.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Чтение списков пакетов…
++ sudo apt-get install -y tpm2-tools tpm2-abrmd swtpm
+Чтение списков пакетов…
+Построение дерева зависимостей…
+Чтение информации о состоянии…
+Уже установлен пакет tpm2-abrmd самой новой версии (2.4.0-1).
+Уже установлен пакет tpm2-tools самой новой версии (5.2-1build1).
+Уже установлен пакет swtpm самой новой версии (0.6.3-0ubuntu3.2).
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 11 пакетов не обновлено.
++ restart_swtpm
++ log_and_explain 'Restarting swtpm emulator.'
++ local 'message=Restarting swtpm emulator.'
+++ date
++ echo -e '\n[INFO] Tue Jul 23 05:33:28 AM CEST 2024: Restarting swtpm emulator.'
+
+[INFO] Tue Jul 23 05:33:28 AM CEST 2024: Restarting swtpm emulator.
++ sudo pkill swtpm
++ sleep 5
++ sudo mkdir -p /tmp/myvtpm
++ sudo swtpm socket --tpmstate dir=/tmp/myvtpm --ctrl type=unixio,path=/tmp/myvtpm/swtpm-sock --log level=20 --daemon
++ '[' 0 -ne 0 ']'
++ sleep 5
++ pgrep -f swtpm
++ start_tpm2_abrmd
++ log_and_explain 'Starting tpm2-abrmd.'
++ local 'message=Starting tpm2-abrmd.'
+++ date
++ echo -e '\n[INFO] Tue Jul 23 05:33:38 AM CEST 2024: Starting tpm2-abrmd.'
+
+[INFO] Tue Jul 23 05:33:38 AM CEST 2024: Starting tpm2-abrmd.
++ sudo pkill tpm2-abrmd
++ true
++ sleep 5
++ sleep 5
++ sudo tpm2-abrmd --tcti=swtpm: --allow-root
+
+** (process:71153): WARNING **: 05:33:43.611: tcti_conf before: "(null)"
+
+** (tpm2-abrmd:71153): WARNING **: 05:33:43.612: tcti_conf after: "swtpm:"
+WARNING:tcti:src/util/io.c:262:socket_connect() Failed to connect to host 127.0.0.1, port 2321: errno 111: Connection refused 
+ERROR:tcti:src/tss2-tcti/tcti-swtpm.c:614:Tss2_Tcti_Swtpm_Init() Cannot connect to swtpm TPM socket 
+ERROR:tcti:src/tss2-tcti/tctildr-dl.c:154:tcti_from_file() Could not initialize TCTI file: swtpm 
+ERROR:tcti:src/tss2-tcti/tctildr.c:428:Tss2_TctiLdr_Initialize_Ex() Failed to instantiate TCTI 
+
+** (tpm2-abrmd:71153): CRITICAL **: 05:33:43.617: init_thread_func: failed to create TCTI with conf "swtpm:", got RC: 0xa000a
+
+(tpm2-abrmd:71153): GLib-GIO-CRITICAL **: 05:33:43.617: g_bus_unown_name: assertion 'owner_id > 0' failed
++ pgrep -f tpm2-abrmd
+++ date
++ echo '[ERROR] Tue Jul 23 05:33:48 AM CEST 2024: Failed to start tpm2-abrmd.'
+[ERROR] Tue Jul 23 05:33:48 AM CEST 2024: Failed to start tpm2-abrmd.
++ exit 1

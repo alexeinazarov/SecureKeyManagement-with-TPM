@@ -1,0 +1,641 @@
++ trap error_handler ERR
++ trap stop_supervisor SIGINT
++ main
++ install_packages
++ echo 'Updating package list and installing required packages...'
+Updating package list and installing required packages...
++ sudo apt-get update
+Сущ:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Сущ:2 https://download.docker.com/linux/ubuntu jammy InRelease
+Сущ:3 https://download.virtualbox.org/virtualbox/debian jammy InRelease
+Сущ:4 http://at.archive.ubuntu.com/ubuntu jammy InRelease
+Сущ:5 http://at.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Сущ:6 http://at.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Чтение списков пакетов…
++ sudo apt-get install -y build-essential cmake libssl-dev openssl wget git automake autoconf libtool pkg-config libtasn1-6-dev libjson-glib-dev expect gawk socat libseccomp-dev gnutls-bin libgnutls28-dev net-tools iproute2 tpm2-tools tpm2-abrmd lsof dos2unix python3
+Чтение списков пакетов…
+Построение дерева зависимостей…
+Чтение информации о состоянии…
+Уже установлен пакет autoconf самой новой версии (2.71-2).
+Уже установлен пакет automake самой новой версии (1:1.16.5-1.3).
+Уже установлен пакет build-essential самой новой версии (12.9ubuntu3).
+Уже установлен пакет iproute2 самой новой версии (5.15.0-1ubuntu2).
+Уже установлен пакет libjson-glib-dev самой новой версии (1.6.6-1build1).
+Уже установлен пакет libseccomp-dev самой новой версии (2.5.3-2ubuntu2).
+Уже установлен пакет libtasn1-6-dev самой новой версии (4.18.0-4build1).
+Уже установлен пакет libtool самой новой версии (2.4.6-15build2).
+Уже установлен пакет lsof самой новой версии (4.93.2+dfsg-1.1build2).
+Уже установлен пакет net-tools самой новой версии (1.60+git20181103.0eebece-1ubuntu5).
+Уже установлен пакет pkg-config самой новой версии (0.29.2-1ubuntu3).
+Уже установлен пакет socat самой новой версии (1.7.4.1-3ubuntu4).
+Уже установлен пакет dos2unix самой новой версии (7.4.2-2).
+Уже установлен пакет expect самой новой версии (5.45.4-2build1).
+Уже установлен пакет tpm2-abrmd самой новой версии (2.4.0-1).
+Уже установлен пакет tpm2-tools самой новой версии (5.2-1build1).
+Уже установлен пакет cmake самой новой версии (3.22.1-1ubuntu1.22.04.2).
+Уже установлен пакет gawk самой новой версии (1:5.1.0-1ubuntu0.1).
+Уже установлен пакет git самой новой версии (1:2.34.1-1ubuntu1.11).
+Уже установлен пакет libgnutls28-dev самой новой версии (3.7.3-4ubuntu1.5).
+Уже установлен пакет libssl-dev самой новой версии (3.0.2-0ubuntu1.16).
+Уже установлен пакет openssl самой новой версии (3.0.2-0ubuntu1.16).
+Уже установлен пакет python3 самой новой версии (3.10.6-1~22.04).
+Уже установлен пакет wget самой новой версии (1.21.2-2ubuntu1.1).
+Уже установлен пакет gnutls-bin самой новой версии (3.7.3-4ubuntu1.5).
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 11 пакетов не обновлено.
++ local current_dir
+++ pwd
++ current_dir=/home/alexey/Documents/mit/appms
++ local project_dir=/home/alexey/Documents/mit/appms/project
++ local cert_dir=/home/alexey/Documents/mit/appms/project/certs
++ local log_dir=/home/alexey/Documents/mit/appms/project/logs
++ local build_dir=/home/alexey/Documents/mit/appms/project/build
++ local include_dir=/home/alexey/Documents/mit/appms/project/include
++ local json_include_dir=/home/alexey/Documents/mit/appms/project/include/nlohmann
++ echo 'Starting comprehensive application setup...'
+Starting comprehensive application setup...
++ setup_directory /home/alexey/Documents/mit/appms/project
++ local dir=/home/alexey/Documents/mit/appms/project
++ echo 'Setting up directory: /home/alexey/Documents/mit/appms/project'
+Setting up directory: /home/alexey/Documents/mit/appms/project
++ mkdir -p /home/alexey/Documents/mit/appms/project
+++ whoami
+++ whoami
++ sudo chown -R alexey:alexey /home/alexey/Documents/mit/appms/project
++ sudo chmod -R 755 /home/alexey/Documents/mit/appms/project
++ generate_certificates /home/alexey/Documents/mit/appms/project/certs
++ local cert_dir=/home/alexey/Documents/mit/appms/project/certs
++ echo 'Generating self-signed certificates in /home/alexey/Documents/mit/appms/project/certs...'
+Generating self-signed certificates in /home/alexey/Documents/mit/appms/project/certs...
++ setup_directory /home/alexey/Documents/mit/appms/project/certs
++ local dir=/home/alexey/Documents/mit/appms/project/certs
++ echo 'Setting up directory: /home/alexey/Documents/mit/appms/project/certs'
+Setting up directory: /home/alexey/Documents/mit/appms/project/certs
++ mkdir -p /home/alexey/Documents/mit/appms/project/certs
+++ whoami
+++ whoami
++ sudo chown -R alexey:alexey /home/alexey/Documents/mit/appms/project/certs
++ sudo chmod -R 755 /home/alexey/Documents/mit/appms/project/certs
++ sudo openssl req -new -x509 -days 365 -nodes -out /home/alexey/Documents/mit/appms/project/certs/myapp-localhost.crt -keyout /home/alexey/Documents/mit/appms/project/certs/myapp-localhost.key -subj /C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com
+....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*...........+...+......+.+......+..+.+..+....+.....+.+..+.+.....+.+...........+.......+..+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*...............+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.......+...........+.+...+.........+.....+.+..+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*...........+..+...+...+.......+......+..+....+......+...+.....+.+.....+.+.....+...+.......+..+...+...+....+...+...+.....+.......+..+.+..+............+..........+...+..+.......+...+..+.........+.+.....+.+...+.....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.......+.+.....+..........+..+.+..+....+.....+....+......+...+.....+...+....+.....+....+............+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----
++ clean_directory /home/alexey/Documents/mit/appms/project/build
++ local dir=/home/alexey/Documents/mit/appms/project/build
++ echo 'Cleaning the directory: /home/alexey/Documents/mit/appms/project/build'
+Cleaning the directory: /home/alexey/Documents/mit/appms/project/build
++ sudo rm -rf /home/alexey/Documents/mit/appms/project/build
++ setup_directory /home/alexey/Documents/mit/appms/project/build
++ local dir=/home/alexey/Documents/mit/appms/project/build
++ echo 'Setting up directory: /home/alexey/Documents/mit/appms/project/build'
+Setting up directory: /home/alexey/Documents/mit/appms/project/build
++ mkdir -p /home/alexey/Documents/mit/appms/project/build
+++ whoami
+++ whoami
++ sudo chown -R alexey:alexey /home/alexey/Documents/mit/appms/project/build
++ sudo chmod -R 755 /home/alexey/Documents/mit/appms/project/build
++ echo 'Deleting old log files...'
+Deleting old log files...
++ setup_directory /home/alexey/Documents/mit/appms/project/logs
++ local dir=/home/alexey/Documents/mit/appms/project/logs
++ echo 'Setting up directory: /home/alexey/Documents/mit/appms/project/logs'
+Setting up directory: /home/alexey/Documents/mit/appms/project/logs
++ mkdir -p /home/alexey/Documents/mit/appms/project/logs
+++ whoami
+++ whoami
++ sudo chown -R alexey:alexey /home/alexey/Documents/mit/appms/project/logs
++ sudo chmod -R 755 /home/alexey/Documents/mit/appms/project/logs
++ sudo rm -f /home/alexey/Documents/mit/appms/project/logs/clear_tpm_lockout.log /home/alexey/Documents/mit/appms/project/logs/kms_client.err.log /home/alexey/Documents/mit/appms/project/logs/kms_client.out.log /home/alexey/Documents/mit/appms/project/logs/kms_server.err.log /home/alexey/Documents/mit/appms/project/logs/kms_server.out.log /home/alexey/Documents/mit/appms/project/logs/tpm_errors.log /home/alexey/Documents/mit/appms/project/logs/tpm_script.log
++ sudo chmod 777 /home/alexey/Documents/mit/appms/project/logs
++ install_swtpm /home/alexey/Documents/mit/appms/project
++ local script_dir=/home/alexey/Documents/mit/appms/project
++ echo 'Running TPM setup script...'
+Running TPM setup script...
++ cd /home/alexey/Documents/mit/appms/project
++ chmod +x setup_tpm_all_set.sh
++ sudo ./setup_tpm_all_set.sh
+Creating necessary directories...
+Using certificate directory: /certs
+Configuring AppArmor for swtpm...
+Reloading AppArmor...
+SWTPM processes found: 71138. Terminating them...
+Checking and killing processes using ports 2321 and 2322...
+Starting SWTPM with command: swtpm socket --tpmstate dir=/var/lib/libvirt/swtpm --tpm2 --server type=tcp,port=2321 --ctrl type=tcp,port=2322 --flags not-need-init,startup-clear
+SWTPM started successfully.
+Verifying TPM functionality...
+TPM is functioning correctly.
+Cleaning up...
+SWTPM setup and verification completed successfully.
++ echo 'TPM setup script completed successfully.'
+TPM setup script completed successfully.
++ check_swtpm_functionality
++ echo 'Checking SWTPM functionality...'
+Checking SWTPM functionality...
++ sudo tpm2_getcap properties-fixed
+TPM2_PT_FAMILY_INDICATOR:
+  raw: 0x322E3000
+  value: "2.0"
+TPM2_PT_LEVEL:
+  raw: 0
+TPM2_PT_REVISION:
+  raw: 0x8A
+  value: 1.38
+TPM2_PT_DAY_OF_YEAR:
+  raw: 0x8
+TPM2_PT_YEAR:
+  raw: 0x7E2
+TPM2_PT_MANUFACTURER:
+  raw: 0x494E5443
+  value: "INTC"
+TPM2_PT_VENDOR_STRING_1:
+  raw: 0x496E7465
+  value: "Inte"
+TPM2_PT_VENDOR_STRING_2:
+  raw: 0x6C000000
+  value: "l"
+TPM2_PT_VENDOR_STRING_3:
+  raw: 0x0
+  value: ""
+TPM2_PT_VENDOR_STRING_4:
+  raw: 0x0
+  value: ""
+TPM2_PT_VENDOR_TPM_TYPE:
+  raw: 0x0
+TPM2_PT_FIRMWARE_VERSION_1:
+  raw: 0x1930000
+TPM2_PT_FIRMWARE_VERSION_2:
+  raw: 0x0
+TPM2_PT_INPUT_BUFFER:
+  raw: 0x400
+TPM2_PT_HR_TRANSIENT_MIN:
+  raw: 0x3
+TPM2_PT_HR_PERSISTENT_MIN:
+  raw: 0x7
+TPM2_PT_HR_LOADED_MIN:
+  raw: 0x3
+TPM2_PT_ACTIVE_SESSIONS_MAX:
+  raw: 0x40
+TPM2_PT_PCR_COUNT:
+  raw: 0x18
+TPM2_PT_PCR_SELECT_MIN:
+  raw: 0x3
+TPM2_PT_CONTEXT_GAP_MAX:
+  raw: 0xFFFF
+TPM2_PT_NV_COUNTERS_MAX:
+  raw: 0x80
+TPM2_PT_NV_INDEX_MAX:
+  raw: 0x800
+TPM2_PT_MEMORY:
+  raw: 0x6
+TPM2_PT_CLOCK_UPDATE:
+  raw: 0x400000
+TPM2_PT_CONTEXT_HASH:
+  raw: 0xB
+TPM2_PT_CONTEXT_SYM:
+  raw: 0x6
+TPM2_PT_CONTEXT_SYM_SIZE:
+  raw: 0x100
+TPM2_PT_ORDERLY_COUNT:
+  raw: 0xFF
+TPM2_PT_MAX_COMMAND_SIZE:
+  raw: 0xF80
+TPM2_PT_MAX_RESPONSE_SIZE:
+  raw: 0xF80
+TPM2_PT_MAX_DIGEST:
+  raw: 0x20
+TPM2_PT_MAX_OBJECT_CONTEXT:
+  raw: 0x3A0
+TPM2_PT_MAX_SESSION_CONTEXT:
+  raw: 0xF8
+TPM2_PT_PS_FAMILY_INDICATOR:
+  raw: 0x1
+TPM2_PT_PS_LEVEL:
+  raw: 0x0
+TPM2_PT_PS_REVISION:
+  raw: 0x103
+TPM2_PT_PS_DAY_OF_YEAR:
+  raw: 0x0
+TPM2_PT_PS_YEAR:
+  raw: 0x0
+TPM2_PT_SPLIT_MAX:
+  raw: 0x80
+TPM2_PT_TOTAL_COMMANDS:
+  raw: 0x63
+TPM2_PT_LIBRARY_COMMANDS:
+  raw: 0x63
+TPM2_PT_VENDOR_COMMANDS:
+  raw: 0x0
+TPM2_PT_NV_BUFFER_MAX:
+  raw: 0x800
+TPM2_PT_MODES:
+  raw: 0x0
++ echo 'SWTPM functionality check passed.'
+SWTPM functionality check passed.
++ echo 'Building the application...'
+Building the application...
++ [[ -d /home/alexey/Documents/mit/appms/project ]]
++ cd /home/alexey/Documents/mit/appms/project
++ echo 'Downloading httplib.h...'
+Downloading httplib.h...
++ setup_directory /home/alexey/Documents/mit/appms/project/include
++ local dir=/home/alexey/Documents/mit/appms/project/include
++ echo 'Setting up directory: /home/alexey/Documents/mit/appms/project/include'
+Setting up directory: /home/alexey/Documents/mit/appms/project/include
++ mkdir -p /home/alexey/Documents/mit/appms/project/include
+++ whoami
+++ whoami
++ sudo chown -R alexey:alexey /home/alexey/Documents/mit/appms/project/include
++ sudo chmod -R 755 /home/alexey/Documents/mit/appms/project/include
++ wget https://raw.githubusercontent.com/yhirose/cpp-httplib/master/httplib.h -O /home/alexey/Documents/mit/appms/project/include/httplib.h
+--2024-07-23 05:37:23--  https://raw.githubusercontent.com/yhirose/cpp-httplib/master/httplib.h
+Распознаётся raw.githubusercontent.com (raw.githubusercontent.com)… 185.199.110.133, 185.199.108.133, 185.199.109.133, ...
+Подключение к raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 329619 (322K) [text/plain]
+Сохранение в: ‘/home/alexey/Documents/mit/appms/project/include/httplib.h’
+
+     0K .......... .......... .......... .......... .......... 15% 1.23M 0s
+    50K .......... .......... .......... .......... .......... 31% 2.21M 0s
+   100K .......... .......... .......... .......... .......... 46% 1.61M 0s
+   150K .......... .......... .......... .......... .......... 62% 1.30M 0s
+   200K .......... .......... .......... .......... .......... 77% 2.99M 0s
+   250K .......... .......... .......... .......... .......... 93% 2.15M 0s
+   300K .......... .......... .                               100% 1.53M=0.2s
+
+2024-07-23 05:37:23 (1.72 MB/s) - ‘/home/alexey/Documents/mit/appms/project/include/httplib.h’ сохранён [329619/329619]
+
++ echo 'Downloading json.hpp...'
+Downloading json.hpp...
++ setup_directory /home/alexey/Documents/mit/appms/project/include/nlohmann
++ local dir=/home/alexey/Documents/mit/appms/project/include/nlohmann
++ echo 'Setting up directory: /home/alexey/Documents/mit/appms/project/include/nlohmann'
+Setting up directory: /home/alexey/Documents/mit/appms/project/include/nlohmann
++ mkdir -p /home/alexey/Documents/mit/appms/project/include/nlohmann
+++ whoami
+++ whoami
++ sudo chown -R alexey:alexey /home/alexey/Documents/mit/appms/project/include/nlohmann
++ sudo chmod -R 755 /home/alexey/Documents/mit/appms/project/include/nlohmann
++ wget https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp -O /home/alexey/Documents/mit/appms/project/include/nlohmann/json.hpp
+--2024-07-23 05:37:23--  https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp
+Распознаётся github.com (github.com)… 140.82.121.3
+Подключение к github.com (github.com)|140.82.121.3|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 302 Found
+Адрес: https://objects.githubusercontent.com/github-production-release-asset-2e65be/11171548/782dfa85-d686-4f56-be12-5ef869c4225e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240723%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240723T033724Z&X-Amz-Expires=300&X-Amz-Signature=8b7d6a9387f22bad99c7c619dfe30d7143e5d40e9a3c86180f976e7544bdbf46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=11171548&response-content-disposition=attachment%3B%20filename%3Djson.hpp&response-content-type=application%2Foctet-stream [переход]
+--2024-07-23 05:37:24--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/11171548/782dfa85-d686-4f56-be12-5ef869c4225e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240723%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240723T033724Z&X-Amz-Expires=300&X-Amz-Signature=8b7d6a9387f22bad99c7c619dfe30d7143e5d40e9a3c86180f976e7544bdbf46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=11171548&response-content-disposition=attachment%3B%20filename%3Djson.hpp&response-content-type=application%2Foctet-stream
+Распознаётся objects.githubusercontent.com (objects.githubusercontent.com)… 185.199.111.133, 185.199.110.133, 185.199.108.133, ...
+Подключение к objects.githubusercontent.com (objects.githubusercontent.com)|185.199.111.133|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 804124 (785K) [application/octet-stream]
+Сохранение в: ‘/home/alexey/Documents/mit/appms/project/include/nlohmann/json.hpp’
+
+     0K .......... .......... .......... .......... ..........  6% 2.24M 0s
+    50K .......... .......... .......... .......... .......... 12% 1.19M 0s
+   100K .......... .......... .......... .......... .......... 19% 2.78M 0s
+   150K .......... .......... .......... .......... .......... 25% 4.31M 0s
+   200K .......... .......... .......... .......... .......... 31% 3.09M 0s
+   250K .......... .......... .......... .......... .......... 38% 1.09M 0s
+   300K .......... .......... .......... .......... .......... 44%  828K 0s
+   350K .......... .......... .......... .......... .......... 50% 2.16M 0s
+   400K .......... .......... .......... .......... .......... 57% 1.01M 0s
+   450K .......... .......... .......... .......... .......... 63% 3.55M 0s
+   500K .......... .......... .......... .......... .......... 70% 3.33M 0s
+   550K .......... .......... .......... .......... .......... 76% 4.15M 0s
+   600K .......... .......... .......... .......... .......... 82% 2.42M 0s
+   650K .......... .......... .......... .......... .......... 89% 1.45M 0s
+   700K .......... .......... .......... .......... .......... 95%  735K 0s
+   750K .......... .......... .......... .....                100% 2.80M=0.5s
+
+2024-07-23 05:37:25 (1.67 MB/s) - ‘/home/alexey/Documents/mit/appms/project/include/nlohmann/json.hpp’ сохранён [804124/804124]
+
++ echo 'Running cmake...'
+Running cmake...
++ cd /home/alexey/Documents/mit/appms/project/build
++ cmake ..
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- OpenSSL found: 3.0.2
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+-- Checking for module 'tss2-esys'
+--   Found tss2-esys, version 3.2.0
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/alexey/Documents/mit/appms/project/build
++ echo 'Running make...'
+Running make...
++ make
+[  8%] Building CXX object CMakeFiles/kms_server.dir/src/server_main.cpp.o
+[ 16%] Building CXX object CMakeFiles/kms_server.dir/src/handlers.cpp.o
+[ 25%] Building CXX object CMakeFiles/kms_server.dir/src/key_manager.cpp.o
+[ 33%] Building CXX object CMakeFiles/kms_server.dir/src/utils.cpp.o
+[ 41%] Building CXX object CMakeFiles/kms_server.dir/src/logger.cpp.o
+[ 50%] Linking CXX executable kms_server
+[ 50%] Built target kms_server
+[ 58%] Building CXX object CMakeFiles/kms_client.dir/src/client_main.cpp.o
+[ 66%] Building CXX object CMakeFiles/kms_client.dir/src/kms_client.cpp.o
+[ 75%] Building CXX object CMakeFiles/kms_client.dir/src/key_manager.cpp.o
+[ 83%] Building CXX object CMakeFiles/kms_client.dir/src/utils.cpp.o
+[ 91%] Building CXX object CMakeFiles/kms_client.dir/src/logger.cpp.o
+[100%] Linking CXX executable kms_client
+[100%] Built target kms_client
++ echo 'Ensuring test_kms.sh is executable...'
+Ensuring test_kms.sh is executable...
++ sudo chmod +x /home/alexey/Documents/mit/appms/project/test_kms.sh
++ echo 'Fixing line endings in test_kms.sh...'
+Fixing line endings in test_kms.sh...
++ sudo dos2unix /home/alexey/Documents/mit/appms/project/test_kms.sh
+dos2unix: преобразование файла /home/alexey/Documents/mit/appms/project/test_kms.sh в формат Unix…
++ echo 'Ensuring test_kms.sh is executable...'
+Ensuring test_kms.sh is executable...
++ sudo chmod +x /home/alexey/Documents/mit/appms/project/test_kms.sh
++ purge_supervisor
++ echo 'Purging Supervisor...'
+Purging Supervisor...
++ echo 'Stopping all supervisord processes...'
+Stopping all supervisord processes...
++ sudo pkill -f supervisord
++ echo 'Checking for any other programs using the required port...'
+Checking for any other programs using the required port...
++ sudo lsof -i :9001
++ true
++ sudo apt-get purge -y supervisor
+Чтение списков пакетов…
+Построение дерева зависимостей…
+Чтение информации о состоянии…
+Пакет «supervisor» не установлен, поэтому не может быть удалён
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 11 пакетов не обновлено.
++ echo 'Removing lingering files and directories...'
+Removing lingering files and directories...
++ sudo rm -rf /var/log/supervisor
++ sudo rm -rf /etc/supervisor
++ sudo rm -f /var/run/supervisor.sock
++ sudo rm -f /tmp/supervisor.sock
++ install_supervisor
++ echo 'Installing Supervisor...'
+Installing Supervisor...
++ sudo apt-get install -y supervisor
+Чтение списков пакетов…
+Построение дерева зависимостей…
+Чтение информации о состоянии…
+Предлагаемые пакеты:
+  supervisor-doc
+Следующие НОВЫЕ пакеты будут установлены:
+  supervisor
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 11 пакетов не обновлено.
+Необходимо скачать 0 B/278 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 1,684 kB.
+Выбор ранее не выбранного пакета supervisor.
+(Чтение базы данных … 
+(Чтение базы данных … 5%
+(Чтение базы данных … 10%
+(Чтение базы данных … 15%
+(Чтение базы данных … 20%
+(Чтение базы данных … 25%
+(Чтение базы данных … 30%
+(Чтение базы данных … 35%
+(Чтение базы данных … 40%
+(Чтение базы данных … 45%
+(Чтение базы данных … 50%
+(Чтение базы данных … 55%
+(Чтение базы данных … 60%
+(Чтение базы данных … 65%
+(Чтение базы данных … 70%
+(Чтение базы данных … 75%
+(Чтение базы данных … 80%
+(Чтение базы данных … 85%
+(Чтение базы данных … 90%
+(Чтение базы данных … 95%
+(Чтение базы данных … 100%
+(Чтение базы данных … на данный момент установлено 278033 файла и каталога.)
+Подготовка к распаковке …/supervisor_4.2.1-1ubuntu1_all.deb …
+Распаковывается supervisor (4.2.1-1ubuntu1) …
+Настраивается пакет supervisor (4.2.1-1ubuntu1) …
+Created symlink /etc/systemd/system/multi-user.target.wants/supervisor.service → /lib/systemd/system/supervisor.service.
+Обрабатываются триггеры для man-db (2.10.2-1) …
++ modify_supervisor_config
++ echo 'Modifying Supervisor configuration...'
+Modifying Supervisor configuration...
++ sudo cp /etc/supervisor/supervisord.conf /etc/supervisor/supervisord.conf.bak
++ sudo sed -i 's|file=/var/run/supervisor.sock|file=/tmp/supervisor.sock|' /etc/supervisor/supervisord.conf
++ sudo sed -i 's|chmod=0700|chmod=0770|' /etc/supervisor/supervisord.conf
++ sudo sed -i '/\[unix_http_server\]/a chown=root:supervisor' /etc/supervisor/supervisord.conf
++ sudo sed -i 's|serverurl=unix:///var/run/supervisor.sock|serverurl=unix:///tmp/supervisor.sock|' /etc/supervisor/supervisord.conf
++ setup_supervisor_user_group
++ echo 'Setting up supervisor user group...'
+Setting up supervisor user group...
++ sudo groupadd -f supervisor
+++ whoami
++ sudo usermod -a -G supervisor alexey
++ newgrp supervisor
+Current user added to supervisor group.
++ setup_supervisor /home/alexey/Documents/mit/appms/project /home/alexey/Documents/mit/appms/project/logs
++ local project_dir=/home/alexey/Documents/mit/appms/project
++ local log_dir=/home/alexey/Documents/mit/appms/project/logs
++ local supervisor_conf=/home/alexey/Documents/mit/appms/project/supervisord.conf
++ local supervisor_relative_conf=/home/alexey/Documents/mit/appms/project/supervisord_relative.conf
++ local temp_dir=/home/alexey/Documents/mit/appms/project/temp
++ setup_directory /home/alexey/Documents/mit/appms/project/temp
++ local dir=/home/alexey/Documents/mit/appms/project/temp
++ echo 'Setting up directory: /home/alexey/Documents/mit/appms/project/temp'
+Setting up directory: /home/alexey/Documents/mit/appms/project/temp
++ mkdir -p /home/alexey/Documents/mit/appms/project/temp
+++ whoami
+++ whoami
++ sudo chown -R alexey:alexey /home/alexey/Documents/mit/appms/project/temp
++ sudo chmod -R 755 /home/alexey/Documents/mit/appms/project/temp
++ [[ -f /home/alexey/Documents/mit/appms/project/supervisord_relative.conf ]]
++ echo 'Converting relative paths to absolute paths in supervisord.conf...'
+Converting relative paths to absolute paths in supervisord.conf...
++ sed -e s#command=./build/kms_server#command=/home/alexey/Documents/mit/appms/project/build/kms_server#g -e s#directory=./build#directory=/home/alexey/Documents/mit/appms/project/build#g -e s#stdout_logfile=../logs/kms_server.out.log#stdout_logfile=/home/alexey/Documents/mit/appms/project/logs/kms_server.out.log#g -e s#stderr_logfile=../logs/kms_server.err.log#stderr_logfile=/home/alexey/Documents/mit/appms/project/logs/kms_server.err.log#g -e s#command=./test_kms.sh#command=/home/alexey/Documents/mit/appms/project/test_kms.sh#g -e s#directory=.#directory=/home/alexey/Documents/mit/appms/project#g -e s#stdout_logfile=./logs/kms_client.out.log#stdout_logfile=/home/alexey/Documents/mit/appms/project/logs/kms_client.out.log#g -e s#stderr_logfile=./logs/kms_client.err.log#stderr_logfile=/home/alexey/Documents/mit/appms/project/logs/kms_client.err.log#g /home/alexey/Documents/mit/appms/project/supervisord_relative.conf
++ echo 'Finished converting relative paths to absolute paths in supervisord.conf...'
+Finished converting relative paths to absolute paths in supervisord.conf...
++ sudo cp /home/alexey/Documents/mit/appms/project/supervisord.conf /home/alexey/Documents/mit/appms/project/temp/supervisord.conf
+++ whoami
+++ whoami
++ sudo chown alexey:alexey /home/alexey/Documents/mit/appms/project/temp/supervisord.conf
++ python3 /home/alexey/Documents/mit/appms/project/post_process_supervisor_conf.py /home/alexey/Documents/mit/appms/project/temp/supervisord.conf
+Post-processing supervisord.conf to correct malformed paths with Python...
+Verification successful: Corrected path found in configuration.
+Post-processing completed.
++ sudo mv /home/alexey/Documents/mit/appms/project/temp/supervisord.conf /etc/supervisor/conf.d/supervisord_project.conf
++ sudo chown root:root /etc/supervisor/conf.d/supervisord_project.conf
++ echo 'Supervisor configuration after post-processing:'
+Supervisor configuration after post-processing:
++ sudo cat /etc/supervisor/conf.d/supervisord_project.conf
+;suprvisord_relative.conf
+[supervisord]
+nodaemon=true
+minfds=1024
+minprocs=200
+user=root  ; replace 'alexey' with the actual username
+
+[unix_http_server]
+file=/var/run/supervisor.sock
+chmod=0700
+
+[supervisorctl]
+serverurl=unix:///var/run/supervisor.sock
+
+[program:kms_server]
+command=sudo /home/alexey/Documents/mit/appms/project/build/kms_server
+directory=/home/alexey/Documents/mit/appms/project/build
+autostart=true
+autorestart=true
+stdout_logfile=/home/alexey/Documents/mit/appms/project/logs/kms_server.out.log
+stderr_logfile=/home/alexey/Documents/mit/appms/project/logs/kms_server.err.log
+stdout_logfile_maxbytes=50MB
+stderr_logfile_maxbytes=50MB
+stdout_logfile_backups=10
+stderr_logfile_backups=10
+startsecs=17
+startretries=7
+user=root
+
+[program:kms_client]
+command=/home/alexey/Documents/mit/appms/project/test_kms.sh
+directory=/home/alexey/Documents/mit/appms/project
+autostart=true
+autorestart=false
+stdout_logfile=/home/alexey/Documents/mit/appms/project/logs/kms_client.out.log
+stderr_logfile=/home/alexey/Documents/mit/appms/project/logs/kms_client.err.log
+stdout_logfile_maxbytes=50MB
+stderr_logfile_maxbytes=50MB
+stdout_logfile_backups=10
+stderr_logfile_backups=10
+startsecs=23
+startretries=11
+
++ echo 'Killing any existing supervisord processes...'
+Killing any existing supervisord processes...
++ sudo pkill -f supervisord
++ echo 'Removing stale supervisor sockets...'
+Removing stale supervisor sockets...
++ sudo rm -f /var/run/supervisor.sock
++ sudo rm -f /tmp/supervisor.sock
++ echo 'Starting supervisord with the new configuration...'
+Starting supervisord with the new configuration...
++ sudo supervisord -c /etc/supervisor/conf.d/supervisord_project.conf
+2024-07-23 05:39:12,128 INFO Set uid to user 0 succeeded
+2024-07-23 05:39:12,137 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-07-23 05:39:12,137 INFO supervisord started with pid 72621
+2024-07-23 05:39:13,150 INFO spawned: 'kms_client' with pid 72623
+2024-07-23 05:39:13,155 INFO spawned: 'kms_server' with pid 72624
+2024-07-23 05:39:30,552 INFO success: kms_server entered RUNNING state, process has stayed up for > than 17 seconds (startsecs)
+2024-07-23 05:39:36,737 INFO success: kms_client entered RUNNING state, process has stayed up for > than 23 seconds (startsecs)
+2024-07-23 05:39:38,834 INFO exited: kms_client (exit status 1; not expected)
+2024-07-23 05:41:48,859 WARN received SIGINT indicating exit request
+2024-07-23 05:41:48,860 INFO waiting for kms_server to die
+2024-07-23 05:41:48,864 INFO stopped: kms_server (terminated by SIGTERM)
+++ stop_supervisor
+++ echo 'Initiating graceful shutdown of Supervisor and its managed processes...'
+Initiating graceful shutdown of Supervisor and its managed processes...
+++ sudo supervisorctl stop all
+unix:///tmp/supervisor.sock no such file
+++ echo 'Encountered an error while stopping managed processes.'
+Encountered an error while stopping managed processes.
+++ echo 'Performing hard kill of all supervisord processes...'
+Performing hard kill of all supervisord processes...
+++ sudo pkill -f supervisord
+++ echo 'Purging Supervisor to clear lingering issues...'
+Purging Supervisor to clear lingering issues...
+++ purge_supervisor
+++ echo 'Purging Supervisor...'
+Purging Supervisor...
+++ echo 'Stopping all supervisord processes...'
+Stopping all supervisord processes...
+++ sudo pkill -f supervisord
+++ echo 'Checking for any other programs using the required port...'
+Checking for any other programs using the required port...
+++ sudo lsof -i :9001
+++ true
+++ sudo apt-get purge -y supervisor
+Чтение списков пакетов…
+Построение дерева зависимостей…
+Чтение информации о состоянии…
+Следующие пакеты будут УДАЛЕНЫ:
+  supervisor*
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 1 пакетов, и 11 пакетов не обновлено.
+После данной операции объём занятого дискового пространства уменьшится на 1,684 kB.
+(Чтение базы данных … 
+(Чтение базы данных … 5%
+(Чтение базы данных … 10%
+(Чтение базы данных … 15%
+(Чтение базы данных … 20%
+(Чтение базы данных … 25%
+(Чтение базы данных … 30%
+(Чтение базы данных … 35%
+(Чтение базы данных … 40%
+(Чтение базы данных … 45%
+(Чтение базы данных … 50%
+(Чтение базы данных … 55%
+(Чтение базы данных … 60%
+(Чтение базы данных … 65%
+(Чтение базы данных … 70%
+(Чтение базы данных … 75%
+(Чтение базы данных … 80%
+(Чтение базы данных … 85%
+(Чтение базы данных … 90%
+(Чтение базы данных … 95%
+(Чтение базы данных … 100%
+(Чтение базы данных … на данный момент установлено 278170 файлов и каталогов.)
+Удаляется supervisor (4.2.1-1ubuntu1) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+(Чтение базы данных … 
+(Чтение базы данных … 5%
+(Чтение базы данных … 10%
+(Чтение базы данных … 15%
+(Чтение базы данных … 20%
+(Чтение базы данных … 25%
+(Чтение базы данных … 30%
+(Чтение базы данных … 35%
+(Чтение базы данных … 40%
+(Чтение базы данных … 45%
+(Чтение базы данных … 50%
+(Чтение базы данных … 55%
+(Чтение базы данных … 60%
+(Чтение базы данных … 65%
+(Чтение базы данных … 70%
+(Чтение базы данных … 75%
+(Чтение базы данных … 80%
+(Чтение базы данных … 85%
+(Чтение базы данных … 90%
+(Чтение базы данных … 95%
+(Чтение базы данных … 100%
+(Чтение базы данных … на данный момент установлено 278039 файлов и каталогов.)
+Вычищаются файлы настройки пакета supervisor (4.2.1-1ubuntu1) …
+dpkg: предупреждение: при удалении supervisor каталог «/var/log/supervisor» не пуст, поэтому не удалён
+dpkg: предупреждение: при удалении supervisor каталог «/etc/supervisor/conf.d» не пуст, поэтому не удалён
+++ echo 'Removing lingering files and directories...'
+Removing lingering files and directories...
+++ sudo rm -rf /var/log/supervisor
+++ sudo rm -rf /etc/supervisor
+++ sudo rm -f /var/run/supervisor.sock
+++ sudo rm -f /tmp/supervisor.sock
+++ echo 'Waiting for processes to complete tasks (optional, adjust sleep time as needed)...'
+Waiting for processes to complete tasks (optional, adjust sleep time as needed)...
+++ sleep 5
+++ sudo systemctl stop supervisor
+Failed to stop supervisor.service: Unit supervisor.service not loaded.
+++ echo 'Supervisor was not running.'
+Supervisor was not running.
+++ sudo rm -f /var/run/supervisor.sock
+++ sudo rm -f /tmp/supervisor.sock
+++ echo 'Supervisor and its managed processes have been stopped gracefully.'
+Supervisor and its managed processes have been stopped gracefully.
++ echo 'Supervisor started with the new configuration.'
+Supervisor started with the new configuration.
++ echo 'Supervisor setup completed.'
+Supervisor setup completed.
++ echo 'Enabling and starting Supervisor service...'
+Enabling and starting Supervisor service...
++ sudo systemctl enable supervisor
+Failed to enable unit: Unit file supervisor.service does not exist.

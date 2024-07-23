@@ -1,0 +1,77 @@
+
+[INFO] Tue Jul 23 05:17:10 AM CEST 2024: Permissions set on TPM device files.
+
+[INFO] Tue Jul 23 05:17:10 AM CEST 2024: TPM is not in DA lockout mode.
+
+[INFO] Tue Jul 23 05:17:10 AM CEST 2024: Executing: tpm2_clear
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
+ERROR: Unable to run tpm2_clear
+
+[ERROR] Tue Jul 23 05:17:10 AM CEST 2024: Command failed: tpm2_clear
+
+[ERROR] Tue Jul 23 05:17:10 AM CEST 2024: Failed to clear TPM. Retrying in 5 seconds.
+
+[INFO] Tue Jul 23 05:17:15 AM CEST 2024: Executing: tpm2_clear
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
+ERROR: Unable to run tpm2_clear
+
+[ERROR] Tue Jul 23 05:17:15 AM CEST 2024: Command failed: tpm2_clear
+
+[ERROR] Tue Jul 23 05:17:15 AM CEST 2024: Failed to clear TPM. Retrying in 5 seconds.
+
+[INFO] Tue Jul 23 05:17:20 AM CEST 2024: Executing: tpm2_clear
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
+ERROR: Unable to run tpm2_clear
+
+[ERROR] Tue Jul 23 05:17:21 AM CEST 2024: Command failed: tpm2_clear
+
+[ERROR] Tue Jul 23 05:17:21 AM CEST 2024: Failed to clear TPM. Retrying in 5 seconds.
+
+[ERROR] Tue Jul 23 05:17:26 AM CEST 2024: Failed to clear TPM after 3 attempts. Rebooting swtpm.
+
+[INFO] Tue Jul 23 05:17:26 AM CEST 2024: Restarting swtpm emulator.
+
+[INFO] Tue Jul 23 05:17:36 AM CEST 2024: Executing: tpm2_clear
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
+ERROR: Unable to run tpm2_clear
+
+[ERROR] Tue Jul 23 05:17:36 AM CEST 2024: Command failed: tpm2_clear
+
+[ERROR] Tue Jul 23 05:17:36 AM CEST 2024: Failed to clear TPM after reboot. Exiting script.
+
+[INFO] Di 23 Jul 2024 05:18:02 CEST: Permissions set on TPM device files.
+
+[INFO] Di 23 Jul 2024 05:18:02 CEST: TPM is not in DA lockout mode.
+
+[INFO] Di 23 Jul 2024 05:18:02 CEST: Executing: tpm2_clear
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
+ERROR: Unable to run tpm2_clear
+
+[ERROR] Di 23 Jul 2024 05:18:02 CEST: Command failed: tpm2_clear
+
+[ERROR] Di 23 Jul 2024 05:18:02 CEST: Failed to clear TPM. Retrying in 5 seconds.
+
+[INFO] Di 23 Jul 2024 05:18:07 CEST: Executing: tpm2_clear
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
+ERROR: Unable to run tpm2_clear
+
+[ERROR] Di 23 Jul 2024 05:18:07 CEST: Command failed: tpm2_clear
+
+[ERROR] Di 23 Jul 2024 05:18:07 CEST: Failed to clear TPM. Retrying in 5 seconds.
+
+[INFO] Di 23 Jul 2024 05:18:12 CEST: Executing: tpm2_clear
+WARNING:esys:src/tss2-esys/api/Esys_Clear.c:291:Esys_Clear_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/api/Esys_Clear.c:97:Esys_Clear() Esys Finish ErrorCode (0x00000921) 
+ERROR: Esys_Clear(0x921) - tpm:warn(2.0): authorizations for objects subject to DA protection are not allowed at this time because the TPM is in DA lockout mode
