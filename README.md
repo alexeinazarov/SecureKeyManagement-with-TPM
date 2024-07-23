@@ -40,10 +40,11 @@ The password rotation system is designed with the following components:
 
 ## Installation and Setup
 
-To set up the application, run the following script:
+To set up the application, run the following scriptin the main directory:
 
 ```bash
-bash scripts/setup_app.sh
+$ chmod +x setup_app.sh
+$ ./setup_app.sh 
 ```
 
 This script configures the environment and installs necessary dependencies.
